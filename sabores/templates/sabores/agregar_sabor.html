@@ -1,0 +1,10 @@
+{% extends 'sabores/base.html' %}
+
+{% block content %}
+    <h2>Agregar Nuevo Sabor</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Sabor</button>
+    </form>
+{% endblock %}

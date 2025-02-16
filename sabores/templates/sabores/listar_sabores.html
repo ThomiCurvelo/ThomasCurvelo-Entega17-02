@@ -1,0 +1,22 @@
+{% extends 'sabores/base.html' %}
+
+{% block content %}
+    <h2>Listado de Sabores</h2>
+
+    <form method="GET" action="{% url 'buscar_sabores' %}">
+        <input type="text" name="q" placeholder="Buscar por nombre" value="{{ query }}">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <ul>
+        {% for sabor in sabores %}
+            <li>
+                <h3>{{ sabor.nombre }}</h3>
+                <p>{{ sabor.descripcion }}</p>
+                <p><small>{{ sabor.fecha_agregado }}</small></p>
+            </li>
+        {% empty %}
+            <p>No hay sabores disponibles.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}
